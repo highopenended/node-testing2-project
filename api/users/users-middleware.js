@@ -8,7 +8,6 @@ function validateUser(req, res, next) {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return res.status(400).json({ message: "Valid email is required" });
     }
-
     next();
 }
 
