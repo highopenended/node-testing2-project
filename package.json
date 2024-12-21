@@ -1,20 +1,39 @@
 {
-  "name": "testing2-project",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bloominstituteoftechnology/node-testing2-project.git"
-  },
-  "description": "For this project you will create a RESTful API using Node and Express, containing endpoints to perform some CRUD operations on a resource of your choosing. Two or three endpoints are enough. Data should be persisted in a SQLite database.",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bloominstituteoftechnology/node-testing2-project/issues"
-  },
-  "homepage": "https://github.com/bloominstituteoftechnology/node-testing2-project#readme"
+    "name": "testing2-project",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "server": "nodemon index.js",
+        "migrate": "knex migrate:latest",
+        "rollback": "knex migrate:rollback",
+        "seed": "knex seed:run",
+        "reset": "npm run rollback && npm run migrate && npm run seed",
+        "test": "cross-env NODE_ENV=testing jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bloominstituteoftechnology/node-testing2-project.git"
+    },
+    "description": "For this project you will create a RESTful API using Node and Express, containing endpoints to perform some CRUD operations on a resource of your choosing. Two or three endpoints are enough. Data should be persisted in a SQLite database.",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/bloominstituteoftechnology/node-testing2-project/issues"
+    },
+    "homepage": "https://github.com/bloominstituteoftechnology/node-testing2-project#readme",
+    "dependencies": {
+        "express": "^4.21.2",
+        "knex": "^3.1.0",
+        "sqlite3": "^5.1.7"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "eslint": "^9.17.0",
+        "globals": "^15.14.0",
+        "jest": "^29.7.0",
+        "nodemon": "^3.1.9",
+        "supertest": "^7.0.0"
+    }
 }
