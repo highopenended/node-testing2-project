@@ -9,8 +9,13 @@ app.use('/api/users', userRoutes);
 describe('Users API Endpoints', () => {
   // Test GET /users
   it('should return a list of users', async () => {
-    const res = await request(app).get('/');
-    
+
+    const endpoint = '/api/users';
+    console.log(`Making request to: http://localhost:3000${endpoint}`);
+
+    const res = await request(app).get(endpoint);
+    console.log(res.body)
+
     expect(res.statusCode).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
   });  
